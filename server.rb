@@ -10,22 +10,22 @@ class DataServer < Sinatra::Base
   end
 
   post '/set' do
-    puts
-    puts "PARAMS"
-    puts params
+    # puts "PARAMS"
+    # puts params
     memory_data.merge!(params)
-    puts "DATA"
-    puts memory_data
+    # puts "DATA"
+    # puts memory_data
     params #this is here so I can test the params
   end
 
   get '/get' do
-    'No key entered'
+    key = params[:key]
+    memory_data[key]
   end
 
-  get '/get:key' do
-    memory_data[params['key']]
-  end
+  # get /\/get\??\w*=?(?<key>.*)/ do
+  #   memory_data[params['key']]
+  # end
 
   run! if app_file == $0
 end
