@@ -10,11 +10,11 @@ class DataServer < Sinatra::Base
   end
 
   get '/set' do
-    puts "PARAMS"
-    puts params
+    # puts "PARAMS"
+    # puts params
     memory_data.merge!(params)
-    puts "DATA"
-    puts memory_data
+    # puts "DATA"
+    # puts memory_data
     params #this is here so I can test the params
   end
 

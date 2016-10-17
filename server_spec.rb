@@ -33,6 +33,11 @@ class DataServerTest < Test::Unit::TestCase
     assert_equal last_response.body, "[\"somekey\", \"somevalue\"]"
   end
 
+  def test_no_key_request
+    get '/set'
+    assert last_response.ok?
+    assert_equal last_response.body, ""
+  end
 
 
 # ============= /get tests ===================
@@ -41,11 +46,6 @@ class DataServerTest < Test::Unit::TestCase
     get '/get'
     assert last_response.ok?
   end
-
-  # def test_it_returns_error_message_without_any_data
-  #   get '/get'
-  #   assert_equal last_response.body, 'No key entered'
-  # end
 
   def test_a_single_request
     #tests when you submit an unknown key, it should return a blank string
@@ -68,6 +68,8 @@ class DataServerTest < Test::Unit::TestCase
   end
 
   def test_feature_2
+    # submits two key value pairs and then tests that you can retrieve both
+
     submit_key_value("key1", "value1")
     submit_key_value("key2", "value2")
 
