@@ -20,13 +20,13 @@ class DataServerTest < Test::Unit::TestCase
   # ============= /set tests ===================
 
   def test_it_serves_set
-    post '/set'
+    get '/set'
     assert last_response.ok?
   end
 
   def test_set_params
     sample_params = {'somekey' => 'somevalue'}
-    post '/set', params=sample_params
+    get '/set', params=sample_params
     assert last_response.ok?
     # puts "BODY ONE"
     # puts last_response.body
@@ -61,16 +61,15 @@ class DataServerTest < Test::Unit::TestCase
 
     my_key = "key1"
     my_value = "value1"
-    post "/set?#{my_key}=#{my_value}"
-
+    get "/set?#{my_key}=#{my_value}"
 
     get "/get?key=#{my_key}"
     assert_equal last_response.body, "#{my_value}"
   end
 
   def test_feature_2
-    post_key_value("key1", "value1")
-    post_key_value("key2", "value2")
+    submit_key_value("key1", "value1")
+    submit_key_value("key2", "value2")
 
     get "/get?key=key1"
     assert_equal last_response.body, "value1"
@@ -83,8 +82,8 @@ class DataServerTest < Test::Unit::TestCase
 
 # =========== Test helper methods ==================
 
-  def post_key_value(key, value)
-    post "/set?#{key}=#{value}"
+  def submit_key_value(key, value)
+    get "/set?#{key}=#{value}"
   end
 
 end
