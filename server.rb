@@ -11,8 +11,7 @@ class DataServer < Sinatra::Base
 
   get '/set' do
     memory_data.merge!(params)
-    params #this is here so I can test the params and just because it's nice to
-            #have a visual confirmation of the params :)
+    params #this is here for testing and visual purposes only
   end
 
   get '/get' do
