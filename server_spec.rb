@@ -11,12 +11,21 @@ class DataServerTest < Test::Unit::TestCase
     DataServer
   end
 
-  def test_it_says_hello_world
+  def test_it_says_data_server
     puts 'RUNNING'
     get '/'
     assert last_response.ok?
-    assert_equal 'Hello World', last_response.body
+    assert_equal 'Welcome to DataServer', last_response.body
   end
 
+  def test_it_serves_set
+    get '/set'
+    assert last_response.ok?
+  end
+
+  def test_it_serves_get
+    get '/get'
+    assert last_response.ok?
+  end
 
 end
