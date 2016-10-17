@@ -28,8 +28,6 @@ class DataServerTest < Test::Unit::TestCase
     sample_params = {'somekey' => 'somevalue'}
     get '/set', params=sample_params
     assert last_response.ok?
-    # puts "BODY ONE"
-    # puts last_response.body
     assert_equal last_response.body, "[\"somekey\", \"somevalue\"]"
   end
 
