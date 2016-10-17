@@ -55,7 +55,7 @@ class DataServerTest < Test::Unit::TestCase
 
   # ============= feature tests ===================
 
-  def feature_1
+  def test_feature_1
     # tests a situation in which a user submits a post request and then requests
     # that same key on the get url
 
@@ -63,5 +63,28 @@ class DataServerTest < Test::Unit::TestCase
     my_value = "value1"
     post "/set?#{my_key}=#{my_value}"
 
+
+    get "/get?key=#{my_key}"
+    assert_equal last_response.body, "#{my_value}"
+  end
+
+  def test_feature_2
+    post_key_value("key1", "value1")
+    post_key_value("key2", "value2")
+
+    get "/get?key=key1"
+    assert_equal last_response.body, "value1"
+
+    get "/get?key=key2"
+    assert_equal last_response.body, "value2"
+  end
+
+  private
+
+# =========== Test helper methods ==================
+
+  def post_key_value(key, value)
+    post "/set?#{key}=#{value}"
+  end
 
 end
