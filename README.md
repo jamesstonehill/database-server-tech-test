@@ -22,13 +22,20 @@ In terms of storing the key and value "in memory" I just used a global variable 
 
 For this project I chose to use Sinatra because it is very lightweight and flexible when compared to other Ruby frameworks like Rails.
 
-I also wanted a framework because I thought that it would make integrating with the to be confirmed database easier/more familiar.  
+I also wanted a framework because I thought that it would make integrating with the to be confirmed database easier/more familiar.
 
 ## Setting up the project locally
 
 In order to setup this project on your machine all you need to do is clone this repo, and run `bundle install` in the repo directory.
 
-The Ruby version specified in the Gemfile is 2.3.0 as this is the latest version widely used currently, but you can change which Ruby version you want to use by editing this version specifier and switching your Ruby version with RVM. 
+### Running the project locally
+
+run `ruby server.rb` from the command line in the root directory of this project.
+
+In order to see the app running locally it is important that you run it using the Sinatra controller (the above command) and not using `rackup`. This is because the project solution specified that port being used should be 4000 and I have configured the Sinatra controller to run on port 4000 but `rackup` will not do this by default.
+
+#### Notes on the Ruby version
+The Ruby version specified in the Gemfile is 2.3.0 as this is the latest version widely used currently, but you can change which Ruby version you want to use by editing this version specifier and switching your Ruby version with RVM.
 
 ## Testing
 
