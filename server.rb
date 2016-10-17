@@ -23,9 +23,5 @@ class DataServer < Sinatra::Base
     memory_data[key]
   end
 
-  # get /\/get\??\w*=?(?<key>.*)/ do
-  #   memory_data[params['key']]
-  # end
-
   run! if app_file == $0
 end
