@@ -30,9 +30,7 @@ In order to setup this project on your machine all you need to do is clone this 
 
 ### Running the project locally
 
-run `ruby server.rb` from the command line in the root directory of this project.
-
-In order to see the app running locally it is important that you run it using the Sinatra controller (the above command) and not using `rackup`. This is because the project solution specified that port being used should be 4000 and I have configured the Sinatra controller to run on port 4000 but `rackup` will not do this by default.
+run `ruby server.rb` from the command line in the root directory of this project. You can also run the program by running `rackup` as rack has been configured to run on port 4000 for this project.
 
 #### Notes on the Ruby version
 The Ruby version specified in the Gemfile is 2.3.0 as this is the latest version widely used currently, but you can change which Ruby version you want to use by editing this version specifier and switching your Ruby version with RVM.
