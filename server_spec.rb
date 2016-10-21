@@ -104,5 +104,4 @@ class DataServerTest < Test::Unit::TestCase
   def get_value(key)
     get "/get?key=#{key}"
   end
-
 end
