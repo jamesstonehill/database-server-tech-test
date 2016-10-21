@@ -15,8 +15,7 @@ class DataServer < Sinatra::Base
   end
 
   get '/get' do
-    key = params[:key]
-    memory_data[key]
+    memory_data[params[:key]]
   end
 
   run! if app_file == $0

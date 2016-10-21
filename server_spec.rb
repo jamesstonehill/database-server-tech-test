@@ -11,7 +11,7 @@ class DataServerTest < Test::Unit::TestCase
     DataServer.new
   end
 
-  def test_it_says_data_server
+  def test_it_says_data_server_on_root
     get '/'
     assert last_response.ok?
     assert_equal 'Welcome to DataServer', last_response.body
@@ -26,7 +26,7 @@ class DataServerTest < Test::Unit::TestCase
 
   def test_set_params
     sample_params = {'somekey' => 'somevalue'}
-    get '/set', params=sample_params
+    get '/set', params = sample_params
     assert last_response.ok?
     assert_equal last_response.body, "[\"somekey\", \"somevalue\"]"
   end
@@ -51,7 +51,7 @@ class DataServerTest < Test::Unit::TestCase
     assert_equal last_response.body, ''
   end
 
-  # ============= feature tests ===================
+  # ============= combined route tests ===================
 
   def test_feature_1
     # tests a situation in which a user submits a post request and then requests
